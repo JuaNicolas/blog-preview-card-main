@@ -1,0 +1,120 @@
+:root {
+  --color-yellow: hsl(47, 88%, 63%);
+  --color-gray-950: hsl(0, 0%, 7%);
+  --color-gray-500: hsl(0, 0%, 42%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --font-family: "Figtree", Arial, sans-serif;
+
+  --spacing-sm: 0.25rem; /* 4px */
+  --spacing-md: 0.5rem; /* 8px */
+  --spacing-lg: 0.75rem; /* 12px */
+  --spacing-xl: 1.5rem; /* 24px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--color-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  width: 384px;
+  background-color: var(--color-white);
+  border-radius: var(--spacing-xl);
+  box-shadow: black 8px 8px 0 0;
+  border: 1px solid black;
+  padding: var(--spacing-xl);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "image"
+    "information"
+    "author";
+  grid-gap: var(--spacing-xl);
+}
+.card--img {
+  grid-area: image;
+  width: auto;
+  border-radius: 0.625rem;
+}
+.card--information {
+  grid-area: information;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+
+  & .card--tag {
+    font-size: 0.875rem;
+    font-weight: 800;
+    border-radius: var(--spacing-sm);
+    background-color: var(--color-yellow);
+    width: fit-content;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  & .card--date {
+    font-size: 0.875rem;
+    color: var(--color-gray-950);
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+  & .card--title {
+    font-size: 1.5rem;
+
+    color: var(--color-gray-950);
+    font-weight: 800;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+  & .card--title:hover {
+    color: var(--color-yellow);
+    cursor: pointer;
+  }
+  & .card--desc {
+    font-size: 1rem;
+    color: var(--color-gray-500);
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+}
+.card--author {
+  grid-area: author;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+
+  & .author--avatar {
+    height: 32px;
+    width: 32px;
+  }
+
+  & .author--name {
+    font-size: 0.875rem;
+    color: var(--color-gray-950);
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+}
+
+.attribution {
+  position: fixed;
+  bottom: var(--spacing-xl);
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
